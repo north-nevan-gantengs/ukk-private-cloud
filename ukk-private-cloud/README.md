@@ -18,22 +18,6 @@ ISP → router-05 → switch → Proxmox dan int-client. ext-client ada di sisi 
 | Proxmox | switch | `192.168.5.6/29` |
 | web-05 / db-05 / web2-05 / lb-05 | vmbr0 | `.2` / `.3` / `.4` / `.5` |
 
-## Konfigurasi Router
-
-1. **System > Reset Configuration**, centang *No Default Configuration* supaya semua port kosong.
-2. **System > Identity**, ganti nama jadi `router-05`.
-3. **IP > Addresses**, tambah IP:
-   - `172.16.100.5/24` di `ether1` (IP dari ISP sesuai soal)
-   - `192.168.5.1/29` di `ether2` (gateway untuk Proxmox)
-   - `192.168.100.1/24` di `ether2` (gateway untuk int-client)
-4. **IP > DHCP Client**, tambah di `ether1` supaya router dapat internet.
-5. **IP > DNS**, isi server `8.8.8.8`.
-6. **IP > DHCP Server > DHCP Setup** di `ether2`, network `192.168.100.0/24`, gateway `192.168.100.1`, pool `192.168.100.10-192.168.100.50`.
-7. **IP > Firewall > NAT**, tambah rule `masquerade` dengan out-interface `ether1` supaya client bisa akses internet.
-8. **IP > Firewall > NAT**, tambah rule `dst-nat`: dst-address `172.16.100.5`, protocol tcp, dst-port `9090`, diarahkan ke `192.168.5.2` port `80`. Ini supaya ext-client bisa buka LMS lewat `172.16.100.5:9090`.
-
-`ether2` dipakai dua jaringan sekaligus, karena Proxmox dan int-client sama-sama lewat satu switch.
-
 ## Dokumentasi & Pengujian
 
 **Identity router diganti jadi router-05.**
