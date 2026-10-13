@@ -18,12 +18,6 @@ ISP → router-05 → switch → Proxmox dan int-client. ext-client ada di sisi 
 | Proxmox | switch | `192.168.5.6/29` |
 | web-05 / db-05 / web2-05 / lb-05 | vmbr0 | `.2` / `.3` / `.4` / `.5` |
 
-## Perangkat
-
-- MikroTik hEX, RouterOS 7.16.1
-- WinBox 4
-- Switch unmanaged
-
 ## Konfigurasi Router
 
 1. **System > Reset Configuration**, centang *No Default Configuration* supaya semua port kosong.
