@@ -1,7 +1,7 @@
 # UKK Private Cloud (Proxmox + Moodle + Load Balancer)
 
 Dokumentasi latihan UKK TKJ paket 2: membangun private cloud di Proxmox untuk menjalankan LMS Moodle, ditambah load balancer.
-Nomor absen 5, jadi semua `xx` di soal diganti `5`.
+Nomor absen 5.
 
 > Masih dikerjakan bertahap. Bagian yang sudah ada baru konfigurasi router MikroTik.
 
